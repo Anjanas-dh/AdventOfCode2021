@@ -5,19 +5,23 @@
       flex flex-col
       justify-center
       items-center
-      border-4 border-red-800
-      bg-red-700
+      border-4 border-red-900
+      bg-red-800
       rounded-lg
     "
     [ngClass]="{
       'opacity-50': day.disabled,
       'cursor-not-allowed': day.disabled,
       'cursor-pointer': !day.disabled,
-      'hover:bg-red-800': !day.disabled
+      'hover:bg-red-900': !day.disabled
     }"
     [routerLink]="day.disabled ? null : ['/day/', day.dayNmbr]"
   >
-    <h2 class="text-sm italic">{{ day.dayNmbr }} december 2021</h2>
-    <p class="font-bold">Day {{ day.dayNmbr }}</p>
+    <h2 class="text-green-700 font-bold text-sm italic py-2">
+      {{ day.dayNmbr }} december 2021
+    </h2>
+    <p class="font-pacifico font-bold text-green-700 text-4xl py-2">
+      Day {{ day.dayNmbr }}
+    </p>
   </div>
 </div>
