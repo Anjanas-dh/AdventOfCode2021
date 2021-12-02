@@ -1,3 +1,5 @@
+<!-- Snow effect credits: alphardex on CodePen https://codepen.io/alphardex/pen/dyPorwJ -->
+<div *ngFor="let snow of snowFlakes" class="snow"></div>
 <div class="h-full grid grid-cols-5 grid-rows-5 gap-8 p-8">
   <div
     *ngFor="let day of daysCount; let i = index"
@@ -8,6 +10,7 @@
       border-4 border-red-900
       bg-red-800
       rounded-lg
+      shadow-xl
     "
     [ngClass]="{
       'opacity-50': day.disabled,
