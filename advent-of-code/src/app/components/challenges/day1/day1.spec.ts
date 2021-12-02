@@ -14,10 +14,30 @@ describe('Day1Component', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(Day1Component);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should test challenge two answer', () => {
+    fixture.detectChanges();
+    fixture.whenStable();
+    component.challengeOne();
+    component.challengeInput = [
+      ...[199, 200, 208, 210, 200, 207, 240, 269, 260, 263],
+    ];
+    component.challengeOne();
+    expect(component.answerChallengeOne).toEqual(7);
+  });
+
+  it('should test challenge two answer', () => {
+    fixture.detectChanges();
+    fixture.whenStable();
+    component.challengeInput = [
+      ...[199, 200, 208, 210, 200, 207, 240, 269, 260, 263],
+    ];
+    component.challengeTwo();
+    expect(component.answerChallengeTwo).toEqual(5);
   });
 });
