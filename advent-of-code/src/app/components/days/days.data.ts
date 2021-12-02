@@ -2,7 +2,7 @@ export class DaysData {
   static init(): { dayNmbr: number; disabled: boolean }[] {
     return [
       { dayNmbr: 1, disabled: false },
-      { dayNmbr: 2, disabled: true },
+      { dayNmbr: 2, disabled: false },
       { dayNmbr: 3, disabled: true },
       { dayNmbr: 4, disabled: true },
       { dayNmbr: 5, disabled: true },

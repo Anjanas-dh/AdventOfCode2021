@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DaysData } from 'src/app/data/days.data';
+import { DaysData } from './days.data';
 
 @Component({
   selector: 'app-days',
