@@ -1,0 +1,28 @@
+<div class="flex w-full justify-center">
+  <h1 class="p-8 text-white font-pacifico text-6xl text-center tracking-wider">
+    Advent Of Code 2021
+  </h1>
+</div>
+<div class="h-full grid grid-cols-5 grid-rows-5 gap-8 p-8">
+  <div
+    *ngFor="let day of daysCount; let i = index"
+    class="
+      flex flex-col
+      justify-center
+      items-center
+      border-4 border-red-800
+      bg-red-700
+      rounded-lg
+    "
+    [ngClass]="{
+      'opacity-50': day.disabled,
+      'cursor-not-allowed': day.disabled,
+      'cursor-pointer': !day.disabled,
+      'hover:bg-red-800': !day.disabled
+    }"
+    [routerLink]="day.disabled ? null : ['/day/', day.dayNmbr]"
+  >
+    <h2 class="text-sm italic">{{ day.dayNmbr }} december 2021</h2>
+    <p class="font-bold">Day {{ day.dayNmbr }}</p>
+  </div>
+</div>
