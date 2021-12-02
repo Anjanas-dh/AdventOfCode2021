@@ -18,7 +18,7 @@
       'cursor-pointer': !day.disabled,
       'hover:bg-red-900': !day.disabled
     }"
-    [routerLink]="day.disabled ? null : ['/day/', day.dayNmbr]"
+    [routerLink]="day.disabled ? null : ['/day/' + day.dayNmbr]"
   >
     <h2 class="text-green-700 font-bold text-sm italic py-2">
       {{ day.dayNmbr }} december 2021
