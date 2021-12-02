@@ -17,6 +17,7 @@ export class Day2Component {
     }
   );
   answerChallengeOne: number = 0;
+  answerChallengeTwo: number = 0;
 
   ngOnInit() {
     this.challengeOne();
@@ -44,7 +45,29 @@ export class Day2Component {
     this.answerChallengeOne = horizontalPosition * depth;
   }
 
-  challengeTwo() {}
+  challengeTwo() {
+    let horizontalPosition = 0;
+    let depth = 0;
+    let aim = 0;
+
+    this.challengeInput.forEach((x: IMovementInput) => {
+      switch (x.movement) {
+        case Movement.forward:
+          horizontalPosition += x.increment;
+          depth += aim * x.increment;
+          break;
+        case Movement.down:
+          aim += x.increment;
+          break;
+        case Movement.up:
+          aim -= x.increment;
+          break;
+        default:
+          break;
+      }
+    });
+    this.answerChallengeTwo = horizontalPosition * depth;
+  }
 }
 
 export enum Movement {
