@@ -34,7 +34,7 @@ describe('Day3Component', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('should test challenge one answer', () => {
+  it('should test challenge one answer', () => {
     fixture.detectChanges();
     fixture.whenStable();
     component.challengeInput = testInput;
@@ -47,6 +47,6 @@ describe('Day3Component', () => {
     fixture.whenStable();
     component.challengeInput = testInput;
     component.challengeTwo();
-    expect(component.answerChallengeTwo).toEqual(900);
+    expect(component.answerChallengeTwo).toEqual(230);
   });
 });

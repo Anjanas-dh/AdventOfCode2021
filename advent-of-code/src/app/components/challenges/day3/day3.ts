@@ -12,7 +12,7 @@ export class Day3Component {
 
   ngOnInit() {
     this.challengeOne();
-    // this.challengeTwo();
+    this.challengeTwo();
   }
 
   challengeOne() {
@@ -50,5 +50,40 @@ export class Day3Component {
     }, []);
   }
 
-  challengeTwo() {}
+  challengeTwo() {
+    let filteredOxygenArray: string[] = [...this.challengeInput];
+    let filteredCo2Array: string[] = [...this.challengeInput];
+    for (let index = 0; index < this.challengeInput[0].length; index++) {
+      if (filteredOxygenArray.length !== 1) {
+        let filterOxygenZeros = filteredOxygenArray.filter((x: string) => {
+          return x[index] == '0';
+        });
+        let filterOxygenOnes = filteredOxygenArray.filter((x: string) => {
+          return x[index] == '1';
+        });
+        filteredOxygenArray =
+          filterOxygenZeros.length === filterOxygenOnes.length
+            ? filterOxygenOnes
+            : filterOxygenZeros.length > filterOxygenOnes.length
+            ? filterOxygenZeros
+            : filterOxygenOnes;
+      }
+      if (filteredCo2Array.length !== 1) {
+        let filterCo2Zeros = filteredCo2Array.filter((x: string) => {
+          return x[index] == '0';
+        });
+        let filterCo2Ones = filteredCo2Array.filter((x: string) => {
+          return x[index] == '1';
+        });
+        filteredCo2Array =
+          filterCo2Zeros.length === filterCo2Ones.length
+            ? filterCo2Zeros
+            : filterCo2Zeros.length > filterCo2Ones.length
+            ? filterCo2Ones
+            : filterCo2Zeros;
+      }
+    }
+    this.answerChallengeTwo =
+      parseInt(filteredOxygenArray[0], 2) * parseInt(filteredCo2Array[0], 2);
+  }
 }
