@@ -17,6 +17,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'day/3',
+    loadChildren: () =>
+      import('./components/challenges/day3/day3.module').then(
+        (m) => m.Day3Module
+      ),
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./components/days/days.module').then((m) => m.DaysModule),
