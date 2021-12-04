@@ -22,7 +22,7 @@ export class Day4Component {
       this.challengeInput = data[0];
       this.challengeInputBingoNumbers = data[1];
       this.challengeOne();
-      // this.challengeTwo();
+      this.challengeTwo();
     });
   }
 
@@ -81,8 +81,8 @@ export class Day4Component {
           completedHorizontal++;
         }
       }
-      if (completedHorizontal === 5) {
-        bingo = true;
+      if ((bingo = completedHorizontal === 5)) {
+        break;
       }
     }
     return bingo;
@@ -91,11 +91,8 @@ export class Day4Component {
   private checkBingoCardHorizontals(bingoCard: IBingoCardNumber[][]): boolean {
     let bingo: boolean = false;
     for (let index = 0; index < bingoCard.length; index++) {
-      if (bingoCard[index].filter((x) => !x.completed).length === 0) {
-        bingo = true;
+      if ((bingo = bingoCard[index].filter((x) => !x.completed).length === 0)) {
         break;
-      } else {
-        bingo = false;
       }
     }
     return bingo;
@@ -107,14 +104,9 @@ export class Day4Component {
   ) {
     let totalCountIncompletedNumbers: number = 0;
     bingoCard.forEach((x: IBingoCardNumber[]) => {
-      const incompletedNumbers = x.filter(
-        (y: IBingoCardNumber) => !y.completed
-      );
-      const totalCount = incompletedNumbers.reduce(
-        (partial_sum, a) => partial_sum + a.nmbr,
-        0
-      );
-      totalCountIncompletedNumbers += totalCount;
+      totalCountIncompletedNumbers += x
+        .filter((y: IBingoCardNumber) => !y.completed)
+        .reduce((partial_sum, a) => partial_sum + a.nmbr, 0);
     });
     this.answerChallengeOne = totalCountIncompletedNumbers * winningBingoNumber;
   }
