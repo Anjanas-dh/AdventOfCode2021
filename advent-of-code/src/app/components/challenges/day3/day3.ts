@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from 'src/app/data/data.service';
 import { Day3Challenge1InputData } from './day3-challenge-input.data';
 
 @Component({
@@ -10,9 +11,15 @@ export class Day3Component {
   answerChallengeOne: number = 0;
   answerChallengeTwo: number = 0;
 
-  ngOnInit() {
-    this.challengeOne();
-    this.challengeTwo();
+  constructor(private dataService: DataService) {}
+
+  ngOnInit(): Promise<any> {
+    return this.dataService.getChallengeThreeData().then((data: string[]) => {
+      this.challengeInput = data;
+      this.challengeOne();
+      this.challengeTwo();
+      return;
+    });
   }
 
   challengeOne() {

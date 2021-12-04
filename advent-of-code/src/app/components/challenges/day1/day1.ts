@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Day1Challenge1InputData } from './day1-challenge1-input.data';
+import { DataService } from 'src/app/data/data.service';
 
 @Component({
   selector: 'app-day1',
@@ -10,10 +10,15 @@ export class Day1Component implements OnInit {
   answerChallengeOne: number = 0;
   answerChallengeTwo: number = 0;
 
-  ngOnInit() {
-    this.challengeInput = Day1Challenge1InputData.init();
-    this.challengeOne();
-    this.challengeTwo();
+  constructor(private dataService: DataService) {}
+
+  ngOnInit(): Promise<any> {
+    return this.dataService.getChallengeOneData().then((data: number[]) => {
+      this.challengeInput = data;
+      this.challengeOne();
+      this.challengeTwo();
+      return;
+    });
   }
 
   challengeOne() {
