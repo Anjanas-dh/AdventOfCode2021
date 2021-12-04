@@ -4,7 +4,7 @@ export class DaysData {
       { dayNmbr: 1, disabled: false },
       { dayNmbr: 2, disabled: false },
       { dayNmbr: 3, disabled: false },
-      { dayNmbr: 4, disabled: true },
+      { dayNmbr: 4, disabled: false },
       { dayNmbr: 5, disabled: true },
       { dayNmbr: 6, disabled: true },
       { dayNmbr: 7, disabled: true },
