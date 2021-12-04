@@ -73,9 +73,17 @@ describe('Day4Component', () => {
   });
 
   it('should test challenge two answer', async () => {
-    fixture.detectChanges();
-    fixture.whenStable();
+    dataServiceSpy.getChallengeFourDataBingoNumbers.and.returnValue(
+      Promise.resolve(testInputBingoNumbers)
+    );
+    dataServiceSpy.getChallengeFourData.and.returnValue(
+      Promise.resolve(
+        testInputBingoCards.map((x) => {
+          return { nmbr: x, completed: false };
+        })
+      )
+    );
     await component.ngOnInit();
-    // expect(component.answerChallengeTwo).toEqual(230);
+    expect(component.answerChallengeTwo).toEqual(1924);
   });
 });
